@@ -26,28 +26,31 @@ const GlobalStyle = createGlobalStyle`
     color:inherit;
   }
 `;
-const router = createBrowserRouter([
-	{
-		path: "",
-		element: <Coins />,
-	},
-	{
-		path: "/:coinId",
-		element: <Coin />,
-		children: [
-			{
-				path: "chart",
-				element: <Chart />,
-			},
-			{
-				path: "price",
-				element: <Price />,
-			},
-		],
-	},
+const router = createBrowserRouter(
+	[
+		{
+			path: "/",
+			element: <Coins />,
+		},
+		{
+			path: "/:coinId",
+			element: <Coin />,
+			children: [
+				{
+					path: "chart",
+					element: <Chart />,
+				},
+				{
+					path: "price",
+					element: <Price />,
+				},
+			],
+		},
 
-	// basename :  {process.env.PUBLIC_URL}},
-]);
+		// basename :  {process.env.PUBLIC_URL}},
+	],
+	{ basename: "react_challenge_coin" }
+);
 
 function App() {
 	const isDark = useRecoilValue(isDarkAtom);

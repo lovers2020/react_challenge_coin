@@ -9,9 +9,26 @@ import Coin from "./routes/Coin";
 import Chart from "./routes/Chart";
 import Price from "./routes/Price";
 
+const GlobalStyle = createGlobalStyle`
+    ${reset}
+    body {
+        font-size: 16px;
+        font-family: 'Noto Sans';
+        background-color: ${(props) => props.theme.bgColor};
+        color: ${(props) => props.theme.textColor};
+    
+    }
+  * {
+    box-sizing:border-box;
+  }
+  a {
+    text-decoration:none;
+    color:inherit;
+  }
+`;
 const router = createBrowserRouter([
 	{
-		path: "/",
+		path: "",
 		element: <Coins />,
 	},
 	{
@@ -32,23 +49,6 @@ const router = createBrowserRouter([
 	// basename :  {process.env.PUBLIC_URL}},
 ]);
 
-const GlobalStyle = createGlobalStyle`
-${reset}
-body {
-  font-size: 16px;
-  font-family: 'Noto Sans';
-  background-color: ${(props) => props.theme.bgColor};
-  color: ${(props) => props.theme.textColor};
-  
-}
-  * {
-    box-sizing:border-box;
-  }
-  a {
-    text-decoration:none;
-    color:inherit;
-  }
-`;
 function App() {
 	const isDark = useRecoilValue(isDarkAtom);
 	return (

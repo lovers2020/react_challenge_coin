@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/lovers2020/react_challenge_coin/static/js/main.65d90c72.js",
-    "index.html": "/lovers2020/react_challenge_coin/index.html",
-    "main.65d90c72.js.map": "/lovers2020/react_challenge_coin/static/js/main.65d90c72.js.map"
+    "main.js": "/react_challenge_coin/static/js/main.baaa0fc4.js",
+    "index.html": "/react_challenge_coin/index.html",
+    "main.baaa0fc4.js.map": "/react_challenge_coin/static/js/main.baaa0fc4.js.map"
   },
   "entrypoints": [
-    "static/js/main.65d90c72.js"
+    "static/js/main.baaa0fc4.js"
   ]
 }

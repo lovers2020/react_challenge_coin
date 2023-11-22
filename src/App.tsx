@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 const router = createHashRouter([
 	{
-		path: "/",
+		path: "",
 		element: <Coins />,
 	},
 	{

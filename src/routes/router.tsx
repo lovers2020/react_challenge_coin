@@ -30,6 +30,7 @@ const router = createBrowserRouter([
 			},
 		],
 	},
+	// basename :  {process.env.PUBLIC_URL}},
 ]);
 
 export default router;

@@ -36,6 +36,7 @@
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build"
 	},
+	"homepage": "https://github.com/lovers2020/react_challenge_coin/",
 	"eslintConfig": {
 		"extends": [
 			"react-app",

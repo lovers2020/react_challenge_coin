@@ -1,9 +1,36 @@
 import { ThemeProvider, createGlobalStyle } from "styled-components";
-import { Outlet } from "react-router-dom";
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { darkTheme, lightTheme } from "./theme";
 import { useRecoilValue } from "recoil";
 import { isDarkAtom } from "./atoms";
 import reset from "styled-reset";
+import Coins from "./routes/Coins";
+import Coin from "./routes/Coin";
+import Chart from "./routes/Chart";
+import Price from "./routes/Price";
+
+const router = createBrowserRouter([
+	{
+		path: "/",
+		element: <Coins />,
+	},
+	{
+		path: "/:coinId",
+		element: <Coin />,
+		children: [
+			{
+				path: "chart",
+				element: <Chart />,
+			},
+			{
+				path: "price",
+				element: <Price />,
+			},
+		],
+	},
+
+	// basename :  {process.env.PUBLIC_URL}},
+]);
 
 const GlobalStyle = createGlobalStyle`
 ${reset}
@@ -28,7 +55,7 @@ function App() {
 		<>
 			<ThemeProvider theme={isDark ? darkTheme : lightTheme}>
 				<GlobalStyle />
-				<Outlet />
+				<RouterProvider router={router} />
 			</ThemeProvider>
 		</>
 	);

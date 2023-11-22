@@ -11,7 +11,7 @@ const router = createBrowserRouter([
 		element: <App />,
 		children: [
 			{
-				path: "",
+				path: "/",
 				element: <Coins />,
 			},
 			{
@@ -30,7 +30,6 @@ const router = createBrowserRouter([
 			},
 		],
 	},
-	// basename :  {process.env.PUBLIC_URL}},
 ]);
 
 export default router;

@@ -1,5 +1,10 @@
 import { ThemeProvider, createGlobalStyle } from "styled-components";
-import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+	Outlet,
+	RouterProvider,
+	createBrowserRouter,
+	createHashRouter,
+} from "react-router-dom";
 import { darkTheme, lightTheme } from "./theme";
 import { useRecoilValue } from "recoil";
 import { isDarkAtom } from "./atoms";
@@ -26,31 +31,28 @@ const GlobalStyle = createGlobalStyle`
     color:inherit;
   }
 `;
-const router = createBrowserRouter(
-	[
-		{
-			path: "/",
-			element: <Coins />,
-		},
-		{
-			path: "/:coinId",
-			element: <Coin />,
-			children: [
-				{
-					path: "chart",
-					element: <Chart />,
-				},
-				{
-					path: "price",
-					element: <Price />,
-				},
-			],
-		},
+const router = createHashRouter([
+	{
+		path: "/",
+		element: <Coins />,
+	},
+	{
+		path: "/:coinId",
+		element: <Coin />,
+		children: [
+			{
+				path: "chart",
+				element: <Chart />,
+			},
+			{
+				path: "price",
+				element: <Price />,
+			},
+		],
+	},
 
-		// basename :  {process.env.PUBLIC_URL}},
-	],
-	{ basename: "react_challenge_coin" }
-);
+	// basename :  {process.env.PUBLIC_URL}},
+]);
 
 function App() {
 	const isDark = useRecoilValue(isDarkAtom);
